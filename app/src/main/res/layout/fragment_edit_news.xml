@@ -3,14 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@color/teal_200"
+    tools:context=".EditNewsFragment"
     android:padding="16dp"
-    tools:context=".NewsFragment">
+    android:orientation="vertical">
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="match_parent"
-        android:hint="Введите значение"
+        android:hint="Измените свое значение"
         android:paddingStart="16dp"
         android:inputType="textCapSentences"
         android:layout_height="wrap_content"/>
