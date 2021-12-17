@@ -55,7 +55,7 @@ public class HomeFragment extends Fragment {
                 AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
                 alert.setTitle("Удалить публикацию?");
                 alert.setMessage("Вы действительно хотите удалить публикацию?");
-            alert.setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                alert.setPositiveButton("Да", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     dialog.dismiss();
@@ -63,7 +63,14 @@ public class HomeFragment extends Fragment {
                     adapter.removeList(position);
                 }
             });
-            AlertDialog dialog = alert.create();
+                alert.setPositiveButton("Нет", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        adapter.notifyItemInserted(position);
+                    }
+                });
+                AlertDialog dialog = alert.create();
             dialog.show();
             }
         });

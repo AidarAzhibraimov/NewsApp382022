@@ -1,5 +1,6 @@
 package kg.geektech.newsapp38.ui.home;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import kg.geektech.newsapp38.OnItemClickListener;
@@ -91,10 +93,14 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         }
 
         public void bind(News news) {
+            @SuppressLint("SimpleDateFormat") SimpleDateFormat data = new SimpleDateFormat("MM.dd HH:mm:ss");
+            String a = data.format(news.getCreateDate());
+            binding.tvData.setText(a);
             binding.tvTitle.setText(news.getTitle());
             if (getAdapterPosition() %2 ==1 ){
                 itemView.setBackgroundColor(ContextCompat.getColor(context, R.color.black));
                 binding.tvTitle.setTextColor(ContextCompat.getColor(context, R.color.white));
+                binding.tvData.setTextColor(ContextCompat.getColor(context,R.color.white));
 
             }
 

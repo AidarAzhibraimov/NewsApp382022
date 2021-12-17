@@ -48,7 +48,6 @@ public class EditNewsFragment extends Fragment {
                 Log.e("key", "text = " + text);
                 String a = news.getTitle().toString();
                 binding.editText.setText(a);
-
             }
         });
     }
