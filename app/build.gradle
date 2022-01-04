@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'androidx.navigation.safeargs'
 }
 
 android {
@@ -47,9 +48,29 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
     //viewPager2
     /*implementation 'android.viewpager2:viewpager2:1.0.0'*/
 
     //newMaterialDesign
     implementation 'com.google.android.material:material:1.6.0-alpha01'
+
+    implementation 'com.chabbal:slidingdotsplash:1.0.2'
+    implementation 'com.tbuonomo:dotsindicator:4.2'
+
+    implementation 'com.tbuonomo:dotsindicator:4.2'
+
+    implementation 'androidx.room:room-runtime:2.4.0'
+    annotationProcessor 'androidx.room:room-compiler:2.4.0'
+
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.0-alpha01'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.2.0-alpha01'
+
+    //Lottie
+    def lottieVersion = "3.4.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 }

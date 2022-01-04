@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 import kg.geektech.newsapp38.OnItemClickListener;
 import kg.geektech.newsapp38.R;
@@ -52,6 +53,18 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         notifyItemInserted(0);
     }
 
+    public void updateItem(News news) {
+        int index = list.indexOf(news);
+        list.set(index, news);
+        notifyItemChanged(index);
+    }
+
+    public void addItems(List<News> list) {
+        this.list.clear();
+        this.list.addAll(list);
+        notifyDataSetChanged();
+    }
+
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }
@@ -60,17 +73,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         list.remove(position);
     }
 
-    public void changeItem(News news,int position) {
-        list.set(position, news);
-    }
 
     public News getItem(int position) {
         return list.get(position);
     }
 
-    public String getItem1(int position) {
-        return list.get(position).toString();
-    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ItemNewsBinding binding;

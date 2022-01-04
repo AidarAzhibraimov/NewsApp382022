@@ -20,13 +20,13 @@
 
     <TextView
         android:id="@+id/tv_data"
-        app:layout_constraintTop_toTopOf="parent"
-        android:hint="Title"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textColor="@color/black"
-        android:textSize="24sp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:hint="Title"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 

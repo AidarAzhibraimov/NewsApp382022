@@ -22,24 +22,41 @@
         android:name="kg.geektech.newsapp38.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
     <fragment
         android:id="@+id/newsFragment"
         android:name="kg.geektech.newsapp38.NewsFragment"
-        android:label="fragment_news"
+        android:label="Add"
         tools:layout="@layout/fragment_news" />
+
     <fragment
         android:id="@+id/profileFragment"
         android:name="kg.geektech.newsapp38.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        android:label="Профиль"
+        tools:layout="@layout/fragment_profile">
+
+        <action
+            android:id="@+id/action_profileFragment_to_profileImageFragment"
+            app:destination="@id/profileImageFragment"
+            app:popUpTo="@id/profileFragment" />
+
+    </fragment>
+
     <fragment
         android:id="@+id/boardFragment"
         android:name="kg.geektech.newsapp38.ui.board.BoardFragment"
         android:label="fragment_board"
         tools:layout="@layout/fragment_board" />
+
     <fragment
-        android:id="@+id/editNewsFragment"
-        android:name="kg.geektech.newsapp38.EditNewsFragment"
-        android:label="fragment_edit_news"
-        tools:layout="@layout/fragment_edit_news" />
+        android:id="@+id/profileImageFragment"
+        android:name="kg.geektech.newsapp38.ProfileImageFragment"
+        android:label="fragment_profiel_image"
+        tools:layout="@layout/fragment_profiel_image">
+
+        <argument
+            android:name="iv_avatar"
+            app:argType="string" />
+    </fragment>
+
 </navigation>

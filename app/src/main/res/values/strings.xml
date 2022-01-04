@@ -9,4 +9,13 @@
     <string name="profile">Profile</string>
     <string name="skip">Skip</string>
     <string name="start">Start</string>
+    <string name="phone">Phone</string>
+    <string name="Gender">gender</string>
+    <string name="sort">sort</string>
+    <string name="Sort">Sort</string>
+    <integer-array name="img_id_arr">
+        <item>@drawable/ic_fon</item>
+        <item>@drawable/ic_fon</item>
+        <item>@drawable/ic_fon</item>
+    </integer-array>
 </resources>

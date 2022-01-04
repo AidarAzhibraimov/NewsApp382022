@@ -3,6 +3,7 @@ package kg.geektech.newsapp38;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
+import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
@@ -36,32 +38,36 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-
-
         BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
                 .build();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
-        getSupportActionBar().hide();
-        if (true) navController.navigate(R.id.boardFragment);
+        /*getSupportActionBar().hide();*/
+
+        Prefs prefs = new Prefs(this);
+        if (!prefs.isBoarShown())
+            navController.navigate(R.id.boardFragment);
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-                if (destination.getId() == R.id.boardFragment)
+                if (destination.getId() == R.id.boardFragment) {
                     getSupportActionBar().hide();
-                else getSupportActionBar().show();
-                if (destination.getId() == R.id.navigation_home || destination.getId() == R.id.navigation_dashboard ||
-                destination.getId() == R.id.navigation_notifications || destination.getId() == R.id.profileFragment){
+                } else {
+                    getSupportActionBar().show();
+                }
+                if (destination.getId() == R.id.navigation_home ||
+                        destination.getId() == R.id.navigation_dashboard ||
+                        destination.getId() == R.id.profileFragment ||
+                        destination.getId() == R.id.navigation_notifications) {
                     binding.navView.setVisibility(View.VISIBLE);
                 } else {
                     binding.navView.setVisibility(View.GONE);
                 }
+
+
             }
         });
     }

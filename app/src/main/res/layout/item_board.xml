@@ -1,22 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center"
     android:padding="32dp"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/iv_board"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lav_actionBar"
         android:layout_width="250dp"
-        android:src="@drawable/ic_def"
-        android:layout_height="250dp"/>
+        android:layout_height="250dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:scaleType="centerCrop"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="lottie-1.json"
+        app:lottie_loop="true" />
 
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="title"
+        android:textStyle="bold"
         android:textColor="@color/black"
         android:layout_marginTop="72dp"
         android:layout_marginBottom="24dp"
